@@ -9,6 +9,9 @@ const config = {
     adapter: adapter({
       fallback: '404.html'
     }),
+    paths: {
+      base: '/moire'
+    },
     alias: {
       $theme: './src/theme'
     }

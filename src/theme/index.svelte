@@ -1,5 +1,6 @@
 <script lang="ts">
     import { format } from 'date-fns';
+    import avatar from './assets/avatar.png';
     import './global.css';
     import type { PageData } from '../routes/$types';
     
@@ -52,7 +53,7 @@
                             <div class="log-meta">
                                 <span class="time">{format(memo.date, 'HH:mm')}</span>
                                 <div class="avatar">
-                                    <img src="/images/avatar.png" alt="User" onerror={(e) => (e.currentTarget as HTMLImageElement).style.display='none'}/>
+                                    <img src={avatar} alt="User" onerror={(e) => (e.currentTarget as HTMLImageElement).style.display='none'}/>
                                 </div>
                             </div>
                             <div class="content">
