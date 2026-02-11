@@ -1,10 +1,10 @@
 export const config = {
-  title: "Moire",
-  author: "Aeris",
-  theme: "receipt",
+  title: "Hacking && Coding",
+  author: "ajdx3906",
+  theme: "cyberpunk",
   pageSize: 20,
   utcOffset: 8,
-  description: "Sync your thoughts from Apple Notes by Shortcuts.",
-  keywords: "memo, thought, sync, apple notes, shortcuts, ios",
-  url: "https://moire.blog"
+  description: "Sync my thoughts from Apple Notes by Shortcuts.",
+  keywords: "memo, thought, apple notes, redteam, ai",
+  url: "https://blog.3636369.xyz"
 };
