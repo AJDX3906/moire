@@ -53,13 +53,13 @@
           </div>
 
           {#each memos as memo}
-            <div class="flex gap-3 mb-4 items-start">
+            <div class="flex gap-3 mb-4 items-start" id={memo.slug}>
               <div class="flex flex-col items-center gap-1 w-10 shrink-0 mt-4">
-                <div class="w-8 h-8 bg-black rounded-full overflow-hidden">
+                <div class="w-8 h-8 rounded-full overflow-hidden">
                   <img
                     src={avatar}
                     alt="User"
-                    class="w-full h-full object-cover"
+                    class="w-full h-full object-contain"
                     onerror={(e) => ((e.currentTarget as HTMLImageElement).style.display = 'none')}
                   />
                 </div>
@@ -75,7 +75,7 @@
                   [&_p]:my-4 [&_img]:grayscale [&_img]:contrast-120 [&_img]:max-w-full [&_img]:my-5 [&_img]:border-2 [&_img]:border-black
                   [&_a]:underline [&_a]:decoration-1 [&_a]:underline-offset-2 [&_a]:hover:bg-black [&_a]:hover:text-white
                   [&_table]:w-full [&_table]:border-collapse [&_table]:my-3 [&_table]:text-xs
-                  [&_th]:border-b-2 [&_th]:border-black [&_th]:border-dashed [&_th]:text-center [&_th]:py-1 [&_th]:uppercase
+                  [&_th]:border-b-2 [&_th]:border-black [&_th]:border-dashed [&_th]:py-1 [&_th]:uppercase
                   [&_td]:py-1 [&_td]:px-1 [&_td]:border-b [&_td]:border-[#ccc] [&_td]:border-dashed
                   [&_blockquote]:border-l-4 [&_blockquote]:border-black [&_blockquote]:pl-4 [&_blockquote]:py-1 [&_blockquote]:my-4 [&_blockquote]:italic [&_blockquote]:text-[0.9rem] [&_blockquote]:bg-black/5
                   [&_.tag-link]:bg-transparent [&_.tag-link]:font-bold [&_.tag-link]:underline [&_.tag-link]:decoration-dashed [&_.tag-link]:underline-offset-3 [&_.tag-link]:hover:bg-black [&_.tag-link]:hover:text-white
@@ -110,6 +110,9 @@
       <div class="font-['Libre_Barcode_39',cursive] text-3xl my-5 tracking-[5px]">||||| |||| || | ||||| || |</div>
 
       <div class="my-5 text-[#999]">- - - - - - - - - - - - - - -</div>
+
+      <p class="mt-8 mb-1">© {new Date().getFullYear()} {config.author.toUpperCase()}</p>
+      <p class="mb-4">synced from Apple Notes and powered by <a href="https://moire.blog/" target="_blank" class="underline decoration-dotted hover:bg-black hover:text-white transition-colors">MOIRE.BLOG</a></p>
     </footer>
   </div>
 </div>

@@ -18,6 +18,8 @@
         loader = () => import('$themes/bento/index.svelte');
     } else if (__MOIRE_THEME__ === 'pixel') {
         loader = () => import('$themes/pixel/index.svelte');
+    } else if (__MOIRE_THEME__ === 'classic') {
+        loader = () => import('$themes/classic/index.svelte');
     } else {
         loader = () => import('$themes/receipt/index.svelte');
     }
@@ -25,7 +27,31 @@
     loader().then(module => {
         ThemeComponent = module.default;
     });
+
+    const schema = $derived({
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": config.title,
+        "description": config.description,
+        "url": config.url,
+        "author": {
+            "@type": "Person",
+            "name": config.author
+        },
+        "blogPost": data.memos.map(memo => ({
+            "@type": "BlogPosting",
+            "headline": memo.slug, // Using slug as headline since there's no title
+            "datePublished": memo.date instanceof Date ? memo.date.toISOString() : memo.date,
+            "url": `${config.url}/#${memo.slug}`,
+            "articleBody": memo.content.replace(/<[^>]*>/g, '').substring(0, 150) + '...', // Strip HTML for summary
+            "keywords": memo.tags.join(', ')
+        }))
+    });
 </script>
+
+<svelte:head>
+    {@html `<script type="application/ld+json">${JSON.stringify(schema)}</script>`}
+</svelte:head>
 
 {#if ThemeComponent}
     <ThemeComponent {data} {config} />
