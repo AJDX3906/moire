@@ -1,5 +1,5 @@
 export const config = {
-  title: "Hacking && Coding",
+  title: "10xHacking",
   author: "ajdx3906",
   theme: "cyberpunk",
   pageSize: 20,
